@@ -34,9 +34,9 @@ const App: FC<AppProps> & { getInitialProps(appContext: AppContext): Promise<App
 }) => {
     const baseURL = `https://${host}`;
 
-    // If you're testing without a mobile wallet, set this to true to allow a browser wallet to be used.
+    // Si está probando sin una billetera móvil, establezca esto en verdadero para permitir que se use una billetera de navegador.
     const connectWallet = false;
-    // If you're testing without a mobile wallet, set this to Devnet or Mainnet to configure some browser wallets.
+    // Si está probando sin una billetera móvil, establezca esto en Devnet o Mainnet para configurar algunas billeteras de navegador.
     const network = WalletAdapterNetwork.Mainnet;
 
     const wallets = useMemo(
@@ -48,7 +48,7 @@ const App: FC<AppProps> & { getInitialProps(appContext: AppContext): Promise<App
         [connectWallet, network]
     );
 
-    // Toggle comments on these lines to use transaction requests instead of transfer requests.
+    // Alterne los comentarios en estas líneas para usar solicitudes de transacción en lugar de solicitudes de transferencia.
     const link = undefined;
     //const link = useMemo(() => new URL(`${baseURL}/api/`), [baseURL]);
 
@@ -66,6 +66,8 @@ const App: FC<AppProps> & { getInitialProps(appContext: AppContext): Promise<App
         <ThemeProvider>
             <FullscreenProvider>
                 {recipient && label ? (
+                    // Realizamos el cambio de Devnet a Mainnet
+                    // <ConnectionProvider endpoint={DEVNET_ENDPOINT}>
                     <ConnectionProvider endpoint={MAINNET_ENDPOINT}>
                         <WalletProvider wallets={wallets} autoConnect={connectWallet}>
                             <WalletModalProvider>
@@ -75,6 +77,7 @@ const App: FC<AppProps> & { getInitialProps(appContext: AppContext): Promise<App
                                     recipient={recipient}
                                     label={label}
                                     message={message}
+                                    // Cambiar el soporte de token de $SOL a $USDC stablecoin
                                     // splToken={MAINNET_USDC_MINT}
                                     // symbol="USDC"
                                     // icon={<USDCIcon />}
