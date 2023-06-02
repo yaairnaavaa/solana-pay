@@ -13,7 +13,7 @@ export const TransactionsLink: FC = () => {
         <Link href={to} passHref>
             <a className={css.link}>
                 <ActivityIcon />
-                {phone ? null : 'Recent Transactions'}
+                {phone ? null : 'Transacciones Recientes'}
             </a>
         </Link>
     );

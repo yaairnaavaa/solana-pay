@@ -25,7 +25,7 @@ const PendingPage: NextPage = () => {
     return (
         <div className={css.root}>
             <div className={css.header}>
-                <BackButton onClick={reset}>Cancel</BackButton>
+                <BackButton onClick={reset}>Cancelar</BackButton>
                 {connectWallet ? <WalletMultiButton /> : null}
             </div>
             <div className={css.main}>
@@ -36,8 +36,8 @@ const PendingPage: NextPage = () => {
                 <div className={css.code}>
                     <QRCode />
                 </div>
-                <div className={css.scan}>Scan this code with your Solana Pay wallet</div>
-                <div className={css.confirm}>You'll be asked to approve the transaction</div>
+                <div className={css.scan}>Escanea este código con tu wallet de Solana Pay</div>
+                <div className={css.confirm}>Se le pedirá que apruebe la transacción.</div>
             </div>
             <div className={css.footer}>
                 <PoweredBy />

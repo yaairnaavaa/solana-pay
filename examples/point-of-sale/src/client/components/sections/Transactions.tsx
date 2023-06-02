@@ -13,7 +13,7 @@ export const Transactions: FC = () => {
 
     return (
         <div className={css.root}>
-            <div className={css.title}>Recent Transactions</div>
+            <div className={css.title}>Transacciones Recientes</div>
             {transactions.map((transaction) => (
                 <Transaction key={transaction.signature} transaction={transaction} />
             ))}
